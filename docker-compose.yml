@@ -13,12 +13,12 @@ services:
     container_name: front-ng-v1
     build:
       context: ./front-ng-v1
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-prod
     volumes:
       - './front-ng-v1:/app'
       - '/app/node_modules'
     ports:
-      - '4201:4200'
+      - '81:80'
 
   back-node-v1:
     container_name: back-node-v1
