@@ -49,7 +49,8 @@ USER herokuuser
 ARG RAILS_ENV=production
 
 # RUN apt-get update && apt-get install -yq curl
-RUN apk add --no-cache --update curl
+# RUN apk add --no-cache --update curl
+RUN apk update && apk add curl curl-dev bash
 
 # run nginx
 CMD ["nginx", "-g", "daemon off;"]
