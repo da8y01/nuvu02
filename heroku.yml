@@ -12,7 +12,7 @@ build:
     RAILS_ENV: development
 release:
   command:
-    - ./deployment-tasks.sh
+    - ls
   image: front
 # run:
 #   web: bundle exec puma -C config/puma.rb
