@@ -48,7 +48,8 @@ USER herokuuser
 # EXPOSE 80
 ARG RAILS_ENV=production
 
-RUN apt-get update && apt-get install -yq curl
+# RUN apt-get update && apt-get install -yq curl
+RUN apk add --no-cache --update curl
 
 # run nginx
 CMD ["nginx", "-g", "daemon off;"]
