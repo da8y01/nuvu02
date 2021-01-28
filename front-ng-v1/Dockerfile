@@ -41,6 +41,8 @@ FROM nginx:1.17.1-alpine
 # copy artifact build from the 'build environment'
 COPY --from=build /app/dist /usr/share/nginx/html
 
+WORKDIR /app
+
 # RUN apt-get update && apt-get install -yq curl
 # RUN apk add --no-cache --update curl
 RUN apk update && apk add curl curl-dev bash
