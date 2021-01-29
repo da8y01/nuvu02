@@ -28,8 +28,10 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.signupForm.value);
-    this.showUser()
+    // console.warn(this.signupForm.value);
+    this.backendService.postUser(this.signupForm.value).subscribe((resp) => {
+      console.log(resp)
+    })
   }
 
   showUser() {
