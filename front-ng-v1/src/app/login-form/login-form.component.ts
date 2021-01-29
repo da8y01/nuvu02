@@ -27,7 +27,9 @@ export class LoginFormComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     // console.warn(this.signupForm.value);
     this.backendService.loginUser(this.loginForm.value).subscribe((resp) => {
-      console.log(resp)
+      // console.log(resp)
+      console.log(resp.body.token)
+      localStorage.setItem('secure_token', resp.body.token)
     })
   }
 }

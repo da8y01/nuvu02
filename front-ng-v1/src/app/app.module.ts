@@ -9,12 +9,14 @@ import { MaterialModule } from './material.module';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupComponent
+    SignupComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

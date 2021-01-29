@@ -9,14 +9,14 @@ import { User } from '../user';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  userModel: User;
-  headers: any;
+  userModel: User
+  headers: any
   signupForm = this.fb.group({
     email: [''],
     password: [''],
     ccinfo: [''],
     admin: [false],
-  });
+  })
 
   constructor(
     private fb: FormBuilder,

@@ -1,6 +1,11 @@
 export interface User {
-  email: String;
-  password?: String;
-  ccinfo?: String;
-  admin?: Boolean;
+  email: string;
+  password?: string;
+  ccinfo?: string;
+  admin?: boolean;
+}
+
+export interface GetUser {
+  token: string;
+  user: object;
 }
