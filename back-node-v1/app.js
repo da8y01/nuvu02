@@ -3,11 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const mongoose = require('mongoose');
+// const passport = require('passport');
+
+mongoose.connect('mongodb://127.0.0.1:27017/nuvu02', { useMongoClient: true }).then(db => {
+  console.log('Mongoose connection done');
+}, err => { console.error(err); });
+mongoose.connection.on('error', error => console.log(error) );
+mongoose.Promise = global.Promise;
 
 var app = express();
+
+// var corsOptions = {
+//   origin: 'http://example.com',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+require('./auth');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
