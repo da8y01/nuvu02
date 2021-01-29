@@ -23,4 +23,8 @@ export class BackendService {
   postUser(user: User): Observable<HttpResponse<User>> {
     return this.http.post<User>(`${this.configUrl}/users/signup`, user, this.options);
   }
+
+  loginUser(user: User): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`${this.configUrl}/users/login`, user, this.options);
+  }
 }
